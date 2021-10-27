@@ -1,0 +1,194 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled3.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyMBHOFAcBlu7tR8YgqA7+Kw",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Flying-flash/Data-Structures/blob/main/27Oct2021_Q1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 69
+        },
+        "id": "SaTZ3oGMUj5b",
+        "outputId": "d718b4f7-f278-4196-f043-9019b0cd4300"
+      },
+      "source": [
+        "'''You are given a list of numbers J and a single number p.  Write a function to return the minimum and maximum averages of the sequences of p numbers in the list J.\n",
+        "  For example:\n",
+        "    J = [4, 4, 4, 9, 10, 11, 12]\n",
+        "    p = 3\n",
+        "    the sequences will be:(4, 4, 4), (4,4,9), (4,9,10), (9,10,11), (10,11,12)\n",
+        "    From the above we can see that the minimum average will be 4 and the maximum average will be 11, which corresponds to the first and last sequences.\n",
+        "    '''"
+      ],
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'You are given a list of numbers J and a single number p.  Write a function to return the minimum and maximum averages of the sequences of p numbers in the list J.\\n  For example:\\n    J = [4, 4, 4, 9, 10, 11, 12]\\n    p = 3\\n    the sequences will be:(4, 4, 4), (4,4,9), (4,9,10), (9,10,11), (10,11,12)\\n    From the above we can see that the minimum average will be 4 and the maximum average will be 11, which corresponds to the first and last sequences.\\n    '"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "HQJlbGofVHdD"
+      },
+      "source": [
+        "J = [4, 4, 4, 9, 10, 11, 12]\n",
+        "p = 3\n"
+      ],
+      "execution_count": 42,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "EMMWp72cVRuE"
+      },
+      "source": [
+        "def averages(J,p):\n",
+        "  n = len(J)\n",
+        "  max_avg = -1\n",
+        "  min_avg = 9999999\n",
+        "\n",
+        "  for i in range(n-p+1):\n",
+        "    avg = 0\n",
+        "    for j in range(p):\n",
+        "      avg = avg + (J[i+j])/3\n",
+        "    max_avg = max(max_avg, avg)\n",
+        "    min_avg = min(min_avg, avg)\n",
+        "  \n",
+        "  return max_avg, min_avg\n",
+        "\n",
+        "#Time complexity O(p*n)\n"
+      ],
+      "execution_count": 18,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ZyFIMVOnnLI4"
+      },
+      "source": [
+        "a, b = averages(J,p)"
+      ],
+      "execution_count": 19,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sZGjVe2aoo5J",
+        "outputId": "56bb4762-1bbb-42c4-a2dd-7a4f53240f5b"
+      },
+      "source": [
+        "print(f'The minimum average of the sequences is {b}, and the maximum average of the sequences is {a}')"
+      ],
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The minimum average of the sequences is 4.0, and the maximum average of the sequences is 11.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ptfA2xp_oqFs"
+      },
+      "source": [
+        "# using sliding window\n",
+        "def sliding_average(J,p):\n",
+        "\n",
+        " n = len(J)\n",
+        " max_avg = -1\n",
+        " min_avg = 9999999\n",
+        " avg1 = 0\n",
+        " i = 0\n",
+        " j = p-1\n",
+        " q = 0\n",
+        " \n",
+        " while(q < n-p+1):\n",
+        "   subarr = J[i:j+1]\n",
+        "\n",
+        "   avg1 = sum(subarr)//p\n",
+        "   min_avg = min(avg1, min_avg)\n",
+        "   max_avg = max(avg1, max_avg)\n",
+        "   i= i+1\n",
+        "   j= j+1\n",
+        "   q= q+1\n",
+        "  \n",
+        " return min_avg, max_avg\n",
+        "\n"
+      ],
+      "execution_count": 67,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BEX2k9uhsNBK",
+        "outputId": "bdc739aa-ff26-4988-ae01-2732d3ba21d6"
+      },
+      "source": [
+        "print(sliding_average(J,p))"
+      ],
+      "execution_count": 70,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "(4, 11)\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
