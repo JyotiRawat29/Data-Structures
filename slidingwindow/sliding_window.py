@@ -8,7 +8,7 @@ if len(arr)<k:
 max_sum = sum([arr[l] for l in range(k)])
 curr_sum = max_sum
 for i in range(len(arr)-k):
-    curr_sum = curr_sum - arr[i]+arr[i+k-1]
+    curr_sum = curr_sum - arr[i]+arr[i+k]
     max_sum = max(curr_sum,max_sum)
 
 max_sum
