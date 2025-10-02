@@ -25,25 +25,13 @@ The difference between the target and the element should also present in the arr
 I need to return the index of both elements so I save index of the elements as the key to the difference of it with target.
 nums = [2,7,11,15]
 target = 9
-difference = [7,2,2,6]
-hash_difference = {2: 7,
-                    7:2,
-                    11: 2,
-                    15: 6}
-nums[0] + has_difference[2] = 9
-nums[1] + has_difference[7] = 9
-nums[2] + has_difference[11] = 13
-nums[3] + has_difference[15] = 21
-answer is = [0,1]
-
-map= {}
-for i in range(len(nums)):
-  diff = abs(nums[i] - target)
-   if diff in map:
-    return i, map[i]
-  map[nums[i]] = diff
-  
-  
-  
+Converts nums to a hashmap with their indices:
+ {
+ 2:0,
+ 7:1,
+ 11:2,
+ 15:3
+ }
+ now 9-2 is 7 checkeck value of 7 in hash which is index of the other number.
 
    
