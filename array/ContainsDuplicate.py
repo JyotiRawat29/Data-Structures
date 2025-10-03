@@ -33,3 +33,5 @@ for i in range(len(nums)):
     if nums[i] in map: # this will always be true as in above line you are assigning it. Do not think that we need to assign hashmap first. The first clue is to check if the element is present in hashmap or not. If it is empty than assign the value, so that when the duplicate value appears it can use the previous update.
       return True
   return False
+Also you do not need to initiate the counter in hash map for the element as the question only wants you to return the True or False and not how much time duplicate value appeared. So, it is unnecessary.
+  """
