@@ -22,7 +22,7 @@ class LinkedList():
             self.head = temp.next
             temp = None
             return
-        while(temp.next.data !=val): # moving until the next node we want to delete
+        while(temp.next.data !=val): # moving from head until node(next node) we want to delete (thats why initiation from head temp = self.head)
             temp = temp.next
         target_node = temp.next
         temp.next = target_node.next
