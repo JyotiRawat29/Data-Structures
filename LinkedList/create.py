@@ -23,4 +23,31 @@ linked_list.head.next = second
 second.next = third
 
 linked_list.print_ll()
+
+ inseting data 8 at index 2, position 3
+
+linked_list.head.next = second_node
+new_node = Node(8)
+
+"""
+The below 3 lines uses only knowledge about previous node to identify and connect the linked list with new element.
+The trick is to store the pointer of the previous node and than using it.
+Hence to insert new node only the info about the previous knowledge is required.
+"""
+nextnode = second_node.next
+second_node.next = new_node
+new_node.next = nextnode
+linked_list.print_ll()
+
+"""
+In the below 3 lines we are using knowledge of previous and next node to insert the new element.
+"""
+second_node.next = new_node
+new_node.next = third_node
+third_node.next = fourth_node
+linked_list.print_ll()
+
+#insertion with modular programming
+#insertion.py
+
     
