@@ -105,3 +105,31 @@ if __name__ == "__main__":
     str1 = "ABCABC"
     str2 = "ABC"
     print(gcdOfStrings(str1, str2))  
+
+"""
+Super Optimized solution
+We have used Eucledian method instead of brute force approach to find greatest common factor between two numbers.
+Eucledian's Time complexity is O(log(n)), which is better than O(n)). With O(n)
+, time complexity inccreases linearly with the size of n and when the input is in billions number it would be impractical to manage.
+As with log(n) grows slowly almost flat in compared to O(n).
+Searching billion records linearly is impossisble but can be done instantly with log(n) Databases(Btrees) instantly in real time.
+
+"""
+
+class Solution:
+    def findgcd(self,a,b):
+        print("a",a)
+        print("b",b)
+        if b == 0:
+            return a
+        return self.findgcd(b,a%b)
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        if str1 + str2 != str2 + str1:
+           return ""
+        prefix = self.findgcd(max(len(str1), len(str2)), min(len(str1),len(str2)))
+        candidate = str1[:prefix]
+        print(candidate)
+        if (str1 == candidate * (len(str1)//prefix)) and (str2 == candidate * (len(str2)//prefix)):
+            return candidate
+        else:
+            return ""
