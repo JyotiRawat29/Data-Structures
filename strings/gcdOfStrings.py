@@ -56,9 +56,14 @@ Find the larger and smaller string.
 Find gdf of 2 = prefix.
 Check if the substring containg prefix chars of both is equal, if prefix repeating themselves m and n times resulting into the both strings.
 
+#small_str = min(str1, str2) #1
+        #large_str = max(str1,str2) #2
+        #The above method compares string lexigraphically and not length wise
+
+Know your return staments carefully. Focus on the cases that you need und if and rest can go into else.
 """
-class Solution:
-    def gcdOfStrings(self, str1: str, str2: str) -> str:
+
+    def gcdOfStrings(str1: str, str2: str) -> str:
         if len(str1)> len(str2):
             large_str = str1
             small_str = str2
@@ -78,3 +83,25 @@ class Solution:
             return small_str[:prefix]
         else:
             return ""
+    """
+    Optimized solution.
+    combining both strings from Left to right and right to left should result in same combined long string. Only then it has common prefix.
+    """
+    
+    def gcdOfStrings(str1: str, str2: str) -> str:
+        if str1 + str2 != str2 + str1:
+           return ""
+        for i in range(max(len(str1), len(str2)), 0, -1):
+            if len(str1) % i == 0 and len(str2) % i == 0:
+                prefix = str1[:i] # converting the number into string here reduced our number of lines of code
+                print(f"Checking prefix: {prefix}")
+                break
+        if str1 == prefix * (len(str1) // len(prefix)) and str2 == prefix * (len(str2) // len(prefix)):
+             return prefix
+    
+
+
+if __name__ == "__main__":
+    str1 = "ABCABC"
+    str2 = "ABC"
+    print(gcdOfStrings(str1, str2))  
