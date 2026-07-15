@@ -45,9 +45,3 @@ def reverseVowels(self, s: str) -> str:
 #string is immutable(no inplace modifications at all) in python and we cannot 
 #swap the elements of string in python
 
-
-#%%
-
-
-
-# %%

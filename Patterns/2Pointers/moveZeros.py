@@ -14,7 +14,7 @@ Output: [0]
 # once 0 is found, move all the element one by one to left and decrease the counter pointer and place 0 there.
 #at every 0 in array reset the scan pointer to the current element of the array
 # the approach is o(n^2) for worst case 
-def moveZeroes(self, nums: List[int]) -> None:
+def moveZeroes(self, nums: list[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
