@@ -40,7 +40,7 @@ def maxOperations(self, nums: List[int], k: int) -> int:
                 if diff == key:
                     pairs = hashkey[diff]//2
                     counter += pairs
-                    hashkey[key] -=counter*2
+                    hashke[key] = hashkey[diff]%2 #hashkey[key] -=counter*2
 
                 else:
                     pairs= min(hashkey[diff], hashkey[key])
