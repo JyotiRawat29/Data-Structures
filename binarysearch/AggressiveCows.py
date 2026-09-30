@@ -6,6 +6,8 @@ Assign the cows to the stalls such that the minimum distance between any two cow
 Input: arr[] = [1, 2, 4, 8, 9], k = 3
 Output: 3
 Explanation: The first cow can be placed at arr[0], the second at arr[2], and the third at arr[3]. The minimum distance between any two cows is 3 (between arr[0] and arr[2]), which is the maximum possible among all valid arrangements.
+
+https://www.youtube.com/watch?v=7wOzDqsfXy0
 """
 
 arr,k = [1, 2, 4, 8, 9], 3
@@ -14,12 +16,11 @@ def checkTrue(mid, arr, k):
     cows = 1
     laststallPos = arr[0]
     for a in range(1,len(arr)):
-        if (arr[a]-laststallPos) >=mid:
+        if (arr[a]-laststallPos) >=mid: #mid is the minimum possible value, if mid could be a minimum possible value, means a cow can be placed there hence cow+1
             cows +=1
             laststallPos = arr[a]
-
-        if cows == k:
-            return True
+            if cows == k: # or you keep this condition outside outer if , it is same
+                return True
     return False
 
 def aggresiveCows(arr,k):
