@@ -1,0 +1,21 @@
+Things to remember in recursion backtracking;
+    1. Call stack
+    2. Recursion Tree
+    3. Recursion Relation
+
+Time Complexity in recursion is to be find out with 2 methods:
+    1.
+    2. TOTAL # OF RECURSION CALLS + WORK DONE IN EACH CALL = T.CALL
+
+Space Complexity = Depth of recursion call + memory taken in each call
+                    OR
+Space Complexity = Height of recursion call + memory in each call
+
+Order OF QUESTIONS IN recursion-
+1.backtracking_recursion/recursion/number_print_reverse.py
+2.backtracking_recursion/recursion/number_print_forward.py
+3.backtracking_recursion/recursion/factorial.py
+4.backtracking_recursion/recursion/sum_n_numbers.py
+5.backtracking_recursion/recursion/fibonacci.py
+6.backtracking_recursion/recursion/issorted.py
+7.backtracking_recursion/recursion/recursive_bs.py
