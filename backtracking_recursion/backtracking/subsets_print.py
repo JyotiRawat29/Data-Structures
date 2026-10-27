@@ -7,3 +7,6 @@ def subset(arr,ans,i):
     subset(arr,ans,i+1) #exclusion step
 
 subset([1,2,3],[],0)
+
+#T.c = 2^n * n * wd (o(1)) = (2^n)*n
+#s.c= 2^n though we are not saving the subsets and just saving hence s.c = 1
